@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#4F46E5"/>
+      <stop offset="100%" style="stop-color:#7C3AED"/>
+    </linearGradient>
+    <linearGradient id="key" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#FFFFFF"/>
+      <stop offset="100%" style="stop-color:#E2E8F0"/>
+    </linearGradient>
+  </defs>
+  <!-- Rounded square background -->
+  <rect width="512" height="512" rx="108" fill="url(#bg)"/>
+  <!-- Key cap shape -->
+  <rect x="64" y="80" width="384" height="352" rx="32" fill="url(#key)" stroke="#CBD5E1" stroke-width="4"/>
+  <!-- Key cap bottom shadow -->
+  <rect x="68" y="84" width="376" height="8" rx="4" fill="rgba(0,0,0,0.05)"/>
+  <rect x="68" y="420" width="376" height="8" rx="4" fill="rgba(0,0,0,0.08)"/>
+  <!-- Letter K -->
+  <text x="256" y="310" text-anchor="middle" font-family="Helvetica Neue, Arial, sans-serif" font-size="260" font-weight="700" fill="#4F46E5" letter-spacing="-8">K</text>
+</svg>

@@ -1,0 +1,85 @@
+[package]
+name = "keyman"
+version = "0.1.0"
+edition = "2024"
+publish = false
+
+[package.metadata.bundle]
+name = "Keyman"
+identifier = "com.keyman.app"
+icon = ["assets/icon.icns", "assets/icon.ico", "assets/icon.png"]
+version = "0.1.0"
+copyright = "Copyright © 2024 Keyman"
+category = "Utility"
+short_description = "键盘侠 - 魔兽争霸3改键助手"
+long_description = "键盘侠 (Keyman) 是魔兽争霸3重制版的键位映射助手，支持自定义技能和物品栏快捷键"
+
+# macOS specific
+osx_minimum_system_version = "10.13"
+
+# Linux specific
+linux_mime_types = ["application/x-game"]
+linux_categories = ["Game", "Utility"]
+
+[dependencies]
+gpui.workspace = true
+gpui_platform.workspace = true
+gpui-component.workspace = true
+gpui-component-assets.workspace = true
+keyman-core.workspace = true
+keyman-hook.workspace = true
+keyman-detect.workspace = true
+keyman-ui.workspace = true
+anyhow.workspace = true
+smol.workspace = true
+single-instance = "0.3"
+
+[target.'cfg(target_os = "macos")'.dependencies]
+core-graphics = "0.25.0"
+
+[target.'cfg(target_os = "windows")'.dependencies]
+windows = { version = "0.61", features = ["Win32_UI_WindowsAndMessaging", "Win32_Foundation"] }
+raw-window-handle = "0.6"
+
+[build-dependencies]
+winresource = "0.1"
+
+[workspace]
+members = [
+    "crates/keyman-core",
+    "crates/keyman-hook",
+    "crates/keyman-detect",
+    "crates/keyman-ui",
+]
+
+[workspace.package]
+edition = "2024"
+publish = false
+
+[workspace.dependencies]
+# GPUI framework
+gpui = { git = "https://github.com/zed-industries/zed" }
+gpui_platform = { git = "https://github.com/zed-industries/zed", features = ["font-kit", "runtime_shaders"] }
+gpui-component = { git = "https://github.com/huacnlee/gpui-component" }
+gpui-component-assets = { git = "https://github.com/huacnlee/gpui-component" }
+
+# Serialization
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+
+# System info
+sysinfo = "0.38.4"
+
+# Directories
+dirs = "6"
+
+# Utilities
+anyhow = "1"
+smol = "2"
+log = "0.4"
+
+# Internal crates
+keyman-core = { path = "crates/keyman-core" }
+keyman-hook = { path = "crates/keyman-hook" }
+keyman-detect = { path = "crates/keyman-detect" }
+keyman-ui = { path = "crates/keyman-ui" }

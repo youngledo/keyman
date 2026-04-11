@@ -1,0 +1,15 @@
+[package]
+name = "keyman-core"
+version = "0.1.0"
+edition.workspace = true
+
+[dependencies]
+keyman-hook.workspace = true
+keyman-detect.workspace = true
+serde.workspace = true
+serde_json.workspace = true
+anyhow.workspace = true
+dirs.workspace = true
+
+[dev-dependencies]
+tempfile = "3"
