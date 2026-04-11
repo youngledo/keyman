@@ -93,7 +93,7 @@ fn check_accessibility_permission() {
     // We check at startup and print a warning if not granted.
     use core_graphics::event::{
         CGEventTap, CGEventTapLocation, CGEventTapPlacement,
-        CGEventTapOptions, CGEventType,
+        CGEventTapOptions, CGEventType, CallbackResult,
     };
 
     let tap = CGEventTap::new(
@@ -101,7 +101,7 @@ fn check_accessibility_permission() {
         CGEventTapPlacement::HeadInsertEventTap,
         CGEventTapOptions::ListenOnly,
         vec![CGEventType::KeyDown],
-        |_, _, _| None,
+        |_, _, _| CallbackResult::Keep,
     );
 
     if tap.is_err() {
